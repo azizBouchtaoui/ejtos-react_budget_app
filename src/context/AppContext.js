@@ -59,10 +59,18 @@ export const AppReducer = (state, action) => {
             };
         case 'SET_BUDGET':
             action.type = "DONE";
-            state.budget = action.payload;
-
-            return {
-                ...state,
+            
+            if( action.payload >= 20000 ){
+                alert("Cannot is more than 20000!!");
+                return {
+                    ...state,
+                };
+            }
+            else{
+                state.budget = action.payload;
+                return {
+                    ...state,
+                };
             };
         case 'CHG_CURRENCY':
             action.type = "DONE";
